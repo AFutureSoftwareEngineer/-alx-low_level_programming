@@ -4,7 +4,7 @@
   * find_root - find square root of n, starting from the smallest possible, 0
   * @n: n
   * @root: test this root
-  * @Return: natural square root, or -1 if not natural root
+  * Return: natural square root, or -1 if not natural root
   */
 
 int find_root(int n, int root)
@@ -19,7 +19,7 @@ int find_root(int n, int root)
 }
 
 /**
-  * _sqrt_recursion - function that returns the natural square root of a number.
+* _sqrt_recursion - function that returns the natural square root of a number.
   * @n: n
   * Return: natural square square root, or -1 if not natural root
   */
