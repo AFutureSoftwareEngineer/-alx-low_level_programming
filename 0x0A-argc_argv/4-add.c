@@ -1,17 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-#include "main.h"
-#include "holberton.h"
+#include <stdbool.h>
 
 /**
- * is_positive - test if it's positive number.
+ * is_num - test if it's positive number.
  * @argvv: a argv
  * Return: true only if entire string is a number, false if not
  */
 
-bool is_positive(char *argvv)
+bool is_num(char *argvv)
 {
 	int j = 0;
 
@@ -23,16 +20,15 @@ bool is_positive(char *argvv)
 	return (1);
 }
 
-
 /**
- * main - Program that takes integer arguments and returns the sum.
- * @argc: Number of command line arguments
- * @argv: Array name
- * Return: 1 if a non-integer is among the passed in arguments, 0 otherwise
+ * main -  program that adds positive numbers.
+ * @argc: argument counter
+ * @argv: arguments
+ * Return: 0 on success, 1 if an argument wasn't a number
  */
 
 int main(int argc, char *argv[])
-	{
+{
 	int i = 1;
 	int sum = 0;
 
@@ -42,10 +38,10 @@ int main(int argc, char *argv[])
 		return (0);
 	}
 
-	/* check all arguments before adding numbers */
+	/* check all arguments to add numbers */
 	while (i < argc)
 	{
-		if (is_positive(argv[i]))
+		if (is_num(argv[i]))
 			sum += atoi(argv[i]);
 		else
 		{
@@ -58,4 +54,3 @@ int main(int argc, char *argv[])
 
 	return (0);
 }
-
