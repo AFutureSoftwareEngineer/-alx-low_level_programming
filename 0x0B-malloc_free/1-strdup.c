@@ -3,7 +3,8 @@
 #include "main.h"
 
 /**
- * _strdup - returns a pointer to a new space in memory,that contains a copy of the str param.
+ * _strdup - returns a pointer to a new space in memory
+ * that contains a copy of the str param.
  * @str: str to duplicate
  * Return: pointer to duplicated string in allocated memory
  */
