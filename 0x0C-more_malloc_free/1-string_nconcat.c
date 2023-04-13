@@ -1,41 +1,45 @@
+#include <stdlib.h>
 #include "main.h"
+
 /**
- * string_nconcat - function that creates an array of chars,
- *  and initializes it with a specific char
- * @s1: first bytes of the memory
- * @s2: first bytes of the memory
- * @n: first bytes of the memory
- * Return: pointer to the resulting string dests
+ * *string_nconcat - concatenates n bytes of a string to another string
+ * @s1: string to append to
+ * @s2: string to concatenate from
+ * @n: number of bytes from s2 to concatenate to s1
+ *
+ * Return: pointer to the resulting string
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i;
-	char *copy;
-	unsigned int size1 = 0;
+	char *s;
+	unsigned int i = 0, j = 0, len1 = 0, len2 = 0;
 
-	if (s2 == NULL)
-		s2 = "";
-	if (s1 == NULL)
-		s1 = "";
-	while (s1[size1])
-	{
-		size1++;
-	}
-	copy = malloc((size1 + n + 1) * sizeof(*copy));
-	if (!copy)
-	{
+	while (s1 && s1[len1])
+		len1++;
+	while (s2 && s2[len2])
+		len2++;
+
+	if (n < len2)
+		s = malloc(sizeof(char) * (len1 + n + 1));
+	else
+		s = malloc(sizeof(char) * (len1 + len2 + 1));
+
+	if (!s)
 		return (NULL);
-	}
-	for (i = 0; i < size1 + n; i++)
+
+	while (i < len1)
 	{
-		if (i < size1)
-		{
-			copy[i] = s1[i];
-		}
-		else
-		{
-			copy[i] = s2[i - size1];
-		}
+		s[i] = s1[i];
+		i++;
 	}
-	return (copy);
+
+	while (n < len2 && i < (len1 + n))
+		s[i++] = s2[j++];
+
+	while (n >= len2 && i < (len1 + len2))
+		s[i++] = s2[j++];
+
+	s[i] = '\0';
+
+	return (s);
 }
